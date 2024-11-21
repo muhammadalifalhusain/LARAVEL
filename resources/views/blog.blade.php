@@ -6,10 +6,10 @@
     <div class=" text-base text-gray-500">
       <a href="#">Muhammad Alif al Husain</a> | 21 November 2024
     </div>
-      <p>
+      <p class="my-4 font-light">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?
       </p>
-      <a href="#">ReadMore &raquo;</a>
+      <a href="#" class="font-medium text-blue-500 hover:underline">ReadMore &raquo;</a>
 
     
   </article>
