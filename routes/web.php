@@ -12,8 +12,29 @@ Route::get('/about', function () {
 
 });
 
-Route::get('/blog', function () {
-    return view('blog', ['title' => 'BlogPage']);
+Route::get('/posts', function () {
+    return view('posts', ['title' => 'BlogPage', 'posts' => [
+    [    
+        'title' => 'Judul Artikel1',
+        'author' => 'Muhammad Alif al Husain',
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
+    
+    ],
+    [    
+        'title' => 'Judul Artikel2',
+        'author' => 'Muhammad Alif al Husain',
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
+    
+    ],
+    [    
+        'title' => 'Judul Artike3',
+        'author' => 'Muhammad Alif al Husain',
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
+    
+    ],
+
+
+        ]]);
 });
 
 Route::get('/contact', function () {
