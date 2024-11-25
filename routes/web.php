@@ -17,6 +17,7 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'BlogPage', 'posts' => [
     [    
         'id' => 1,
+        'slug' => 'judul-artikel-1',
         'title' => 'Judul Artikel1',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -24,6 +25,7 @@ Route::get('/posts', function () {
     ],
     [    
         'id' => 2,
+        'slug' => 'judul-artikel-2',
         'title' => 'Judul Artikel2',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -31,6 +33,7 @@ Route::get('/posts', function () {
     ],
     [    
         'id' => 3,
+        'slug' => 'judul-artikel-3',
         'title' => 'Judul Artike3',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -41,11 +44,12 @@ Route::get('/posts', function () {
         ]]);
 });
 
-Route::get('/posts/{id}', function ($id){
+Route::get('/posts/{slug}', function ($slug){
     $posts = 
     [
     [    
         'id' => 1,
+        'slug' => 'judul-artikel-1',
         'title' => 'Judul Artikel1',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -53,6 +57,7 @@ Route::get('/posts/{id}', function ($id){
     ],
     [    
         'id' => 2,
+        'slug' => 'judul-artikel-2',
         'title' => 'Judul Artikel2',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -60,6 +65,7 @@ Route::get('/posts/{id}', function ($id){
     ],
     [    
         'id' => 3,
+        'slug' => 'judul-artikel-3',
         'title' => 'Judul Artike3',
         'author' => 'Muhammad Alif al Husain',
         'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolores modi officiis maxime itaque! Suscipit esse eligendi asperiores tenetur eum, velit maiores! Veniam, quo quam eaque sunt blanditiis laborum quidem?',   
@@ -67,8 +73,8 @@ Route::get('/posts/{id}', function ($id){
     ]
 ];
 
-    $post = Arr::first($posts, function($post) use ($id){
-        return $post['id'] == $id;
+    $post = Arr::first($posts, function($post) use ($slug){
+        return $post['slug'] == $slug;
     });
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
