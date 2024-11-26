@@ -17,7 +17,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
-    return view('posts', ['title' => 'BlogPage', 'posts' => Post::allData()
+    return view('posts', ['title' => 'BlogPage', 'posts' => Post::all()
         ]);
 });
 
