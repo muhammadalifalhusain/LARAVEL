@@ -9,7 +9,7 @@
     </a>
     <div class=" text-base text-gray-500">
       <a href="#">{{$post ['author']}}</a> |
-      <span>{{ \Carbon\Carbon::parse($post['created_at'])->format('d M Y') }}</span> 
+      <span>{{ \Carbon\Carbon::parse($post['created_at'])->format('j F Y') }}</span> 
     </div>
       <p class="my-4 font-light">
         {{ Str::limit($post ['body'],100)}}
