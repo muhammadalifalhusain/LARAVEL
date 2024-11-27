@@ -8,5 +8,6 @@ use Illuminate\Support\Arr;
 
 class Post extends Model
 {
+    protected $fillable = ['title', 'author', 'slug', 'body'];
     // Isi model Post
 }
