@@ -7,7 +7,7 @@
     <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-800">{{$post ['title']}}</h2>
     </a>
     <div class=" text-base text-gray-500">
-      <a href="#">
+      <a  class="hover:underline" href="/authors/{{$post->author->id}}">
       {{ $post->author->name }}
       </a> | 
       <span>{{ \Carbon\Carbon::parse($post['created_at'])->format('j F Y') }}</span> 
