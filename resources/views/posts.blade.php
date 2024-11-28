@@ -12,7 +12,7 @@
       <span>{{ \Carbon\Carbon::parse($post['created_at'])->format('j F Y') }}</span> 
     </div>
       <p class="my-4 font-light">
-        {{ Str::limit($post ['body'],100)}}
+        {{ Str::limit($post ['body'],150)}}
       </p>
       <a href="/posts/{{$post ['slug']}}" class="font-medium text-blue-500 hover:underline">ReadMore &raquo;</a>
  
