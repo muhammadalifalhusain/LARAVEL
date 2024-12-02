@@ -14,9 +14,15 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('author_id')       // Menggunakan foreignId saja, tidak perlu unsignedBigInteger
-                  ->constrained('users')         // Menghubungkan ke tabel 'users'
-                  ->onDelete('cascade');         // Opsional: menghapus post jika user dihapus
+            $table->foreignId('author_id')       
+                  ->constrained('users')       
+                  ->onDelete('cascade');    
+            $table->foreignId('category_id')      
+                  ->constrained(
+                    table: 'categories',
+                    indexName: 'posts_category_id'
+                  );                    
+                          
             $table->string('slug')->unique();
             $table->text('body');
             $table->timestamps();
