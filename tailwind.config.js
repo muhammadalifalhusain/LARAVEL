@@ -42,6 +42,6 @@ export default {
         require('flowbite/plugin'),
         require("flowbite-typography"),
     ],
-    safelist: ["bg-red-100", "bg-green-100", "bg-blue-100", "bg-yellow-100"],
+    safelist: ["bg-red-100", "bg-green-100", "bg-blue-100", "bg-yellow-100", "text-red-500", "text-green-500", "text-yellow-500", "text-blue-500"],
 
 };

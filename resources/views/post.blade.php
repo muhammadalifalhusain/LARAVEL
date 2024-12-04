@@ -35,7 +35,7 @@ URL: https://flowbite.com/docs/components/typography/
                       <div>
                           <a href="/authors/{{$post->author->username}}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white hover:underline">{{$post->author->name}}</a>
                           <a href="/categories/{{$post->category->slug}}">
-                            <p class="text-base text-{{ $post->category->color}}-500 dark:text-gray-400 hover:underline">{{$post->category->name}}</p>
+                            <p class=" text-{{ $post->category->color}}-500  hover:underline">{{$post->category->name}}</p>
                           </a>
                           <span class="text-sm">{{ \Carbon\Carbon::parse($post['created_at'])->format('j F Y') }}</span>
                       </div>
