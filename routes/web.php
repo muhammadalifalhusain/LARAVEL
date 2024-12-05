@@ -19,8 +19,11 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
-    $posts = Post::with(['author', 'category'])->get();
-    return view('posts', ['title' => 'BlogPage', 'posts' => $posts
+    $posts = Post::with(['author', 'category']);
+    if(request('search')){
+        $posts->where('title', 'like', '%' . request('search') . '%');
+    }
+    return view('posts', ['title' => 'BlogPage', 'posts' => $posts ->get()
         ]);
 });
 

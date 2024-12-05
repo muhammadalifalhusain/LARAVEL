@@ -1,5 +1,8 @@
 <x-layout>
 <x-slot:title>{{$title}}</x-slot:title>
+<x-search>
+  
+</x-search>
 
   <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-0">
       
