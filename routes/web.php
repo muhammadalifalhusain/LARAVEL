@@ -21,7 +21,7 @@ Route::get('/about', function () {
 Route::get('/posts', function () {
     return view('posts', [
         'title' => 'BlogPage',
-        'posts' => Post::filter()->latest()->get()
+        'posts' => Post::filter()->latest()->paginate(6)
     ]);
 });
 

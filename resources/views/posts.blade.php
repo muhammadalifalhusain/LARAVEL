@@ -3,6 +3,10 @@
     <x-search></x-search>
 
     <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-0">
+          <!-- Tambahkan pagination di sini -->
+          <div class="mt-6">
+                {{ $posts->links() }}
+            </div>
         
         <!-- Menampilkan pesan "Data not found" jika tidak ada data -->
         @if($posts->isEmpty())
@@ -38,7 +42,8 @@
                     </article> 
                 @endforeach
             </div>
+            
+          
         @endif
     </div>
-
 </x-layout>
