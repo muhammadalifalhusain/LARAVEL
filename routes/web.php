@@ -36,9 +36,9 @@ Route::get('/contact', function () {
 });
 
 Route::get('/authors/{user:username}', function (User $user){
-    $posts = $user -> posts -> load ('category' , 'author');
+    $posts = $user->posts()->with('category', 'author')->paginate(10);
 
-    return view('posts', ['title' => count($posts) . 'Articles by :' . $user->name, 'posts' => $user->posts]);
+    return view('posts', ['title' => count($posts) . 'Articles by :' . $user->name, 'posts'=> $posts]);
 });
 Route::get('/categories/{category:slug}', function (Category $category){
     $posts = $category -> posts -> load ('category' , 'author');
