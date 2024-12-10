@@ -21,7 +21,7 @@ Route::get('/about', function () {
 Route::get('/posts', function () {
     return view('posts', [
         'title' => 'BlogPage',
-        'posts' => Post::filter()->latest()->paginate(6)
+        'posts' => Post::filter()->latest()->simplePaginate(6)
     ]);
 });
 
@@ -36,11 +36,16 @@ Route::get('/contact', function () {
 });
 
 Route::get('/authors/{user:username}', function (User $user){
-    $posts = $user->posts()->with('category', 'author')->paginate(10);
+    $posts = $user->posts()->with('category', 'author')->simplePaginate(10);
+    $totalPosts = $user->posts()->count();
 
-    return view('posts', ['title' => count($posts) . 'Articles by :' . $user->name, 'posts'=> $posts]);
+    return view('posts', ['title' => $totalPosts . 'Articles by :' . $user->name, 'posts'=> $posts]);
 });
-Route::get('/categories/{category:slug}', function (Category $category){
-    $posts = $category -> posts -> load ('category' , 'author');
-    return view('posts', ['title' =>  'Articles Category :' . $category->name, 'posts' => $posts]);
+Route::get('/categories/{category:slug}', function (Category $category) {
+    $posts = $category->posts()->with('category', 'author')->simplePaginate(10);
+
+    return view('posts', [
+        'title' => 'Articles Category: ' . $category->name,
+        'posts' => $posts
+    ]);
 });
