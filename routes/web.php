@@ -5,6 +5,7 @@ use Illuminate\Support\Arr;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
+use App\Http\Controllers\FeedbackController;
 
 
 
@@ -49,6 +50,8 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'posts' => $posts
     ]);
 });
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
 
 Auth::routes();
 
