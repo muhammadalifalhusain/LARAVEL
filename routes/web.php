@@ -42,10 +42,14 @@ Route::get('/authors/{user:username}', function (User $user){
     return view('posts', ['title' => $totalPosts . 'Articles by :' . $user->name, 'posts'=> $posts]);
 });
 Route::get('/categories/{category:slug}', function (Category $category) {
-    $posts = $category->posts()->with('category', 'author')->simplePaginate(10);
+    $posts = $category->posts()->with('category', 'author')->simplePaginate(6);
 
     return view('posts', [
         'title' => 'Articles Category: ' . $category->name,
         'posts' => $posts
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
